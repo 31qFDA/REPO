@@ -1,6 +1,10 @@
 __pycache__/
 .venv/
+*.pyc
 ok.txt
 errors.txt
-log.txt
+anketa.txt
 demo.txt
+log.txt
+.idea/
+.vscode/
