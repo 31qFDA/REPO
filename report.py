@@ -3,6 +3,7 @@ W_FIO = 28
 W_MAIL = 22
 W_PHONE = 22
 W_GROUP = 8
+W_DOMAIN = 22
 
 OK_FILE = "ok.txt"
 ERRORS_FILE = "errors.txt"
