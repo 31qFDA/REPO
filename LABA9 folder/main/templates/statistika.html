@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Статистика{% endblock %}
+{% block content %}
+<h2>Статистика</h2>
+<p>Принято: {{ prinyato }} / Отклонено: {{ otkloneno }}</p>
+<h3>По ролям</h3>
+{% if po_rolyam %}
+<ul>
+    {% for rol, count in po_rolyam.items() %}
+    <li>{{ rol }}: {{ count }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Данных нет</p>
+{% endif %}
+<h3>По группам</h3>
+{% if po_gruppam %}
+<ul>
+    {% for g, count in po_gruppam.items() %}
+    <li>{{ g }}: {{ count }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Данных нет</p>
+{% endif %}
+<h3>Отклонённые строки</h3>
+{% if brak %}
+<ul>
+    {% for ln, line, reason in brak %}
+    <li>Строка {{ ln }}: {{ reason }} — <code>{{ line }}</code></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Отклонённых строк нет</p>
+{% endif %}
+{% endblock %}

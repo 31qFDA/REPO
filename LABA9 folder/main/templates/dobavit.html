@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Добавить анкету{% endblock %}
+{% block content %}
+<h2>Добавить анкету</h2>
+{% if oshibka %}
+<p class="oshibka">Ошибка: {{ oshibka }}</p>
+{% endif %}
+<form method="post" action="{{ url_for('dobavit_stranica') }}">
+    <p>
+        <label>Тип анкеты:
+            <select name="tip">
+                <option value="s" {% if dannye.tip =='s' %}selected{% endif %}>Студент</option>
+                <option value="t" {% if dannye.tip =='t' %}selected{% endif %}>Преподаватель</option>
+            </select>
+        </label>
+    </p>
+    <p><label>ФИО: <input type="text" name="fio" value="{{ dannye.fio }}"></label></p>
+    <p><label>Почта: <input type="text" name="mail" value="{{ dannye.mail }}"></label></p>
+    <p><label>Телефон: <input type="text" name="phone" value="{{ dannye.phone }}"></label></p>
+    <p><label>Группа или кафедра: <input type="text" name="extra" value="{{ dannye.extra }}"></label></p>
+    <p><button type="submit">Отправить</button></p>
+</form>
+{% endblock %}

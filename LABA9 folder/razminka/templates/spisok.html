@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Список фамилий{% endblock %}
+{% block content %}
+<h2>Список фамилий</h2>
+{% if spisok %}
+    <ol>
+        {% for fio in spisok %}
+            <li>{{ fio }}</li>
+        {% endfor %}
+    </ol>
+{% else %}
+    <p>Список пуст</p>
+{% endif %}
+{% endblock %}

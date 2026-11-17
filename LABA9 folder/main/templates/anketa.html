@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Анкета №{{ nomer }}{% endblock %}
+{% block content %}
+<h2>Анкета №{{ nomer }}</h2>
+<table>
+    <tr><th>ФИО</th><td>{{ chelovek.fio }}</td></tr>
+    <tr><th>Роль</th><td>{{ rol }}</td></tr>
+    <tr><th>Почта</th><td>{{ chelovek.mail }}</td></tr>
+    <tr><th>Телефон</th><td>{{ chelovek.phone }}</td></tr>
+    <tr><th>Группа/кафедра</th><td>{{ dopolnitelno }}</td></tr>
+</table>
+<p><a href="{{ url_for('index') }}">← К списку</a></p>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Список анкет{% endblock %}
+{% block content %}
+<h2>{{ zagolovok or "Принятые анкеты" }}</h2>
+<p>Принято: {{ prinyato }} / Отклонено: {{ otkloneno }}</p>
+{% if anketi %}
+<table>
+    <tr>
+        <th>№</th>
+        <th>ФИО</th>
+        <th>Роль</th>
+        <th>Группа/кафедра</th>
+        <th>Телефон</th>
+    </tr>
+    {% for a in anketi %}
+    <tr>
+        <td>{{ a.nomer }}</td>
+        <td>
+            <a href="{{ url_for('anketa_stranica', nomer=a.nomer) }}">{{ a.fio }}</a>
+        </td>
+        <td>{{ a.rol }}</td>
+        <td>{{ a.extra }}</td>
+        <td>{{ a.phone }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>Принятых анкет нет</p>
+{% endif %}
+{% endblock %}
